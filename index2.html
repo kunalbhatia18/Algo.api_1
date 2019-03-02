@@ -1,0 +1,189 @@
+<head>
+
+	<link rel="icon" href="logo.png">
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="jquery-ui.min.js"></script>
+	<script type="text/javascript" src="script.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body class="body2">
+<div class="row" align="center">
+	<p class="row-header">Documentation</p>
+	
+	<div class="cards">
+			<p class="card-title">Segment tree: Build</p>
+	<div class="cardz">
+		<div class="text card-ele">
+			<p>The build function intializes the segment tree. Each node in the tree contains three things:- <br>
+1. A value <br>
+2. A left pointer<br> 
+3. A right pointer <br>
+The value in the node is represents the merger of all the nodes in it's subtree, which are pointed by its left and right children. The base case or the leaf nodes of our segment tree contain the original values stored in our array.<br>
+Time complexity:<b> O(NlogN) </b></p>
+		</div>
+		<div class="code card-ele">
+			<p><span class= "red">void</span> <span class= "blue">build_r</span>(T a[], <span class= "green">int</span> l, <span class= "green">int</span> r, <span class= "green">node</span> *cur) {<br>
+<span class= "green">&emsp;if</span> ( l == r ) { <br>
+&emsp;&emsp;cur->val = a[l]; <br>
+&emsp;} <br><span class= "green">&emsp;else</span> {<br>
+&emsp;&emsp;cur->left = <span class= "green">new</span> node; <br>
+<span class= "green">&emsp;&emsp;int</span> mid = (l+r)/2; <br>
+<span class= "blue">&emsp;&emsp;build_r</span>(a,l,mid,cur->left); <br>
+&emsp;&emsp;cur->right = <span class= "green">new</span> node; <br>
+<span class= "blue">&emsp;&emsp;build_r</span>(a,mid+1,r,cur->right);<br>
+&emsp;&emsp;t->val = <span class= "blue">merge</span>( t->left->val , t->right->val );<br>
+&emsp;} <br>
+}  </p>
+		</div>
+	</div>
+	</div>
+	<div class="cards">
+			<p class="card-title">Segment Tree: Update</p>
+	<div class="cardz">
+		<div class="text card-ele">
+			<p>The update function is used to change values in the segment tree. For the position where the value has to be changed, all the values on the nodes will change from it's path to the root node which contains the merger of the whole array.<br>
+Time Complexity: <b>O(logN)</b></p>
+		</div>
+		<div class="code card-ele">
+			<p><span class= "red">void</span> <span class= "blue">update_r</span>(<span class= "green">int</span> pos, T x, <span class= "green">int</span> l, <span class= "green">int</span> r, <span class= "green">node</span> *cur){ <br>
+<span class= "green">&emsp;if</span> ( l == r && l == pos ) { <br>
+&emsp;&emsp;cur->val = x; <br>
+&emsp;} <span class= "green">else</span> { <br>
+<span class= "green">&emsp;&emsp;int</span> mid = (l+r)/2;<br>
+<span class= "green">&emsp;&emsp;if</span> ( pos <= mid ) { <br>
+<span class= "blue">&emsp;&emsp;&emsp;update_r</span>(pos,x,l,mid,cur->left); <br>
+&emsp;&emsp;} <span class= "green">else</span> { <br>
+<span class= "blue">&emsp;&emsp;&emsp;update_r</span>(pos,x,mid+1,r,cur->right);<br>
+&emsp;&emsp;} <br>
+&emsp;&emsp;cur->val = <span class= "blue">merge</span>( cur->left->val , cur->right->val );<br>
+&emsp;} <br>
+}</p>
+		</div>
+	</div>
+	</div>
+	<div class="cards">
+			<p class="card-title">Segment tree: Query</p>
+	<div class="cardz">
+		<div class="text card-ele">
+			<p>The query function retrieves a value from the segment tree. Whenever we want the merger of l to r, there are only 3 cases possible.<br>
+1. The range lies in the left half, so we query for that.<br>
+2. The range lies in the right half, so we query for that.<br>
+3. The range lies in between, so we divide it into two parts and return the merger of the query of those two parts.<br>
+Time Complexity: <b>O(logN)</b></p>
+		</div>
+		<div class="code card-ele">
+			<p><span class= "red">T</span>  <span class= "blue">query_r</span>( <span class= "green">int</span> lx, <span class= "green">int</span> lr, <span class= "green">int</span> l, <span class= "green">int</span> r,<span class= "green">node</span> *cur){ <br>
+<span class= "green">&emsp;if</span> ( lx == l && lr == r) { <br>
+<span class= "green">&emsp;&emsp;return</span> cur->val; <br>
+&emsp;} <span class= "green">else</span> { <br>
+<span class= "green">&emsp;&emsp;int</span> mid = (l+r)/2;<br>
+<span class= "green">&emsp;&emsp;if</span>( lr <= mid ) { <br>
+<span class= "green">&emsp;&emsp;&emsp;return</span> <span class= "blue">query_r</span>(lx,lr,l,mid,cur->left);<br>
+&emsp;&emsp;} <span class= "green">else if</span> ( lx > mid ) { <br>
+<span class= "green">&emsp;&emsp;&emsp;return</span> <span class= "blue">query_r</span>(lx,lr,mid+1,r,cur->right);<br>
+&emsp;&emsp;} <span class= "green">else</span> { <br>
+<span class= "green">&emsp;&emsp;&emsp;return</span> <span class= "blue">merge</span>( <span class= "blue">query_r</span>(lx,mid,l,mid,cur->left) , <span class= "blue">query_r</span>(mid+1,lr,mid+1,r,cur->right) ); <br>
+&emsp;&emsp;}<br>
+&emsp;}<br>
+}</p>
+		</div>
+	</div>
+	</div>
+	<div class="cards">
+			<p class="card-title">Segment tree: The MERGE function</p>
+	<div class="cardz">
+		<div class="text card-ele">
+			<p>By default, we have made the sum segment tree, but this can easily be adjusted according to use by overrighting the merge function in the code.</p>
+		</div>
+		<div class="code card-ele">
+			<p><span class= "red">T</span> <span class= "blue">merge</span>(<span class= "green">T</span> a, <span class= "green">T</span> b){ <br>
+<span class= "green">return</span> a + b; <br>
+} </p>
+		</div>
+	</div>
+	</div>
+	<div class="cards">
+			<p class="card-title">Dijkstra's shortest path</p>
+	<div class="cardz">
+		<div class="text card-ele">
+			<p><p>Dijkstra's shortest algorithm gives the shortest path from a single node in the graph to every other node.
+			The function takes the <b>adjacency list</b> in the form of vector, the number of vertices, source from which the shortest
+		  paths are to be calculated, and the array dist where the path lengths would be stored.</p><br>
+			We maintain a min. priority queue in the format (distance,node) and initially push the source.<br>
+			For every element in the priority queue, we visit it's neighbours, check if the distance from the source to the element
+			+ the distance between element and it's neighbour is shorter than the distance from the source to the neighbour.<br>
+			We update the distance and push the neighbour in the priority queue.</p>
+		</div>
+		<div class="code card-ele">
+			<p><span class= "red">void</span> <span class= "blue">dijkstra</span>(std::vector< std::pair<int,int> >graph[], int v, int source, int dist[]){ <br>
+    &emsp;std::<span class= "blue">priority_queue</span>< std::pair<int,int> , std::vector< std::pair<int,int> > , std::greater< std::pair<int,int> > > pq; <br>
+    &emsp;for(<span class= "green">int</span> i=1; i<=v; i++) dist[i] = INT_MAX; <br>
+    &emsp;<span class= "green">int</span> vis[v+1] = { }; <br>
+    &emsp;dist[source] = 0; <br>
+    &emsp;pq.<span class= "blue">push</span>(std::<span class= "blue">make_pair</span>(dist[source],source)); <br>
+    &emsp;<span class= "green">while</span>(!pq.empty()){ <br>
+        &emsp;&emsp;<span class= "green">int</span> node = pq.top().first , cur = pq.<span class= "blue">top</span>().second; <br>
+        &emsp;&emsp;pq.<span class= "blue">pop</span>(); <br>
+        &emsp;&emsp;<span class= "green">if</span>(dist[node] == cur && !vis[node]){ <br>
+        &emsp;&emsp;&emsp;for(<span class= "green">int</span> i=0; i < graph[node].size(); i++){ <br>
+                &emsp;&emsp;&emsp;&emsp;<span class= "green">int</span> v = graph[node][i].first, d = graph[node][i].second; <br>
+                &emsp;&emsp;&emsp;&emsp;<span class= "green">if</span>(cur + d < dist[v]){ <br>
+									&emsp;&emsp;&emsp;&emsp;&emsp;dist[v] = cur + d; <br>
+                  &emsp;&emsp;&emsp;&emsp;&emsp;pq.<span class= "blue">push_back</span>(std::make_pair(dist[v],v)); <br>
+                &emsp;&emsp;&emsp;&emsp;}<br>
+            &emsp;&emsp;&emsp;} <br>
+						&emsp;&emsp;&emsp;vis[node] = 1; <br>
+    &emsp;&emsp;} <br>
+&emsp;} <br>
+}</p>
+		</div>
+	</div>
+	</div>
+	<div class="cards">
+			<p class="card-title">Dijkstra's shortest path</p>
+	<div class="cardz">
+		<div class="text card-ele">
+			<p><p>Dijkstra's shortest algorithm gives the shortest path from a single node in the graph to every other node.
+			The function takes the <b>adjacency list</b> in the form of vector, the number of vertices, source from which the shortest
+		  paths are to be calculated, and the array dist where the path lengths would be stored.</p><br>
+			We maintain a min. priority queue in the format (distance,node) and initially push the source.<br>
+			For every element in the priority queue, we visit it's neighbours, check if the distance from the source to the element
+			+ the distance between element and it's neighbour is shorter than the distance from the source to the neighbour.<br>
+			We update the distance and push the neighbour in the priority queue.</p>
+		</div>
+		<div class="code card-ele">
+			<p><span class= "red">void</span> <span class= "blue">dijkstra</span>(std::vector< std::pair<int,int> >graph[], int v, int source, int dist[]){ <br>
+    &emsp;std::<span class= "blue">priority_queue</span>< std::pair<int,int> , std::vector< std::pair<int,int> > , std::greater< std::pair<int,int> > > pq; <br>
+    &emsp;for(<span class= "green">int</span> i=1; i<=v; i++) dist[i] = INT_MAX; <br>
+    &emsp;<span class= "green">int</span> vis[v+1] = { }; <br>
+    &emsp;dist[source] = 0; <br>
+    &emsp;pq.<span class= "blue">push</span>(std::<span class= "blue">make_pair</span>(dist[source],source)); <br>
+    &emsp;<span class= "green">while</span>(!pq.empty()){ <br>
+        &emsp;&emsp;<span class= "green">int</span> node = pq.top().first , cur = pq.<span class= "blue">top</span>().second; <br>
+        &emsp;&emsp;pq.<span class= "blue">pop</span>(); <br>
+        &emsp;&emsp;<span class= "green">if</span>(dist[node] == cur && !vis[node]){ <br>
+        &emsp;&emsp;&emsp;for(<span class= "green">int</span> i=0; i < graph[node].size(); i++){ <br>
+                &emsp;&emsp;&emsp;&emsp;<span class= "green">int</span> v = graph[node][i].first, d = graph[node][i].second; <br>
+                &emsp;&emsp;&emsp;&emsp;<span class= "green">if</span>(cur + d < dist[v]){ <br>
+									&emsp;&emsp;&emsp;&emsp;&emsp;dist[v] = cur + d; <br>
+                  &emsp;&emsp;&emsp;&emsp;&emsp;pq.<span class= "blue">push_back</span>(std::make_pair(dist[v],v)); <br>
+                &emsp;&emsp;&emsp;&emsp;}<br>
+            &emsp;&emsp;&emsp;} <br>
+						&emsp;&emsp;&emsp;vis[node] = 1; <br>
+    &emsp;&emsp;} <br>
+&emsp;} <br>
+}</p>
+		</div>
+	</div>
+	</div>
+</div>
+</body>
