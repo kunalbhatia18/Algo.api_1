@@ -32,7 +32,7 @@ button.research{
 	text-align: center;
 	height: 40px;
 	width: 170px;
-	font-family: helvetica;
+	font-family: 'Lato', sans-serif;
 	color: #0080FF;
 	font-size: 12px;
 	background-color: white;
@@ -49,7 +49,7 @@ button.research:hover{
 	text-align: center;
 	height: 40px;
 	width: 170px;
-	font-family: helvetica;
+	font-family: 'Lato', sans-serif;
 	color: white;
 	font-size: 12px;
 	background-color: #0080FF;
@@ -111,7 +111,7 @@ button.start_building_1{
 	text-align: center;
 	height: 40px;
 	width: 150px;
-	font-family: helvetica;
+	font-family: 'Lato', sans-serif;
 	color: #0080FF;
 	font-size: 12px;
 	background-color: white;
@@ -129,7 +129,7 @@ button.start_building_1:hover{
 	text-align: center;
 	height: 40px;
 	width: 150px;
-	font-family: helvetica;
+	font-family: 'Lato', sans-serif;
 	color: white;
 	font-size: 12px;
 	background-color: #0080FF;
@@ -159,7 +159,7 @@ button.Learn{
 	text-align: center;
 	height: 40px;
 	width: 230px;
-	font-family: helvetica;
+	font-family: 'Lato', sans-serif;
 	color: #0080FF;
 	font-size: 12px;
 	background-color: white;
@@ -176,7 +176,7 @@ button.Learn:hover{
 	text-align: center;
 	height: 40px;
 	width: 230px;
-	font-family: helvetica;
+	font-family: 'Lato', sans-serif;
 	color: white;
 	font-size: 12px;
 	background-color: #0080FF;
@@ -278,6 +278,7 @@ div.footer{
 	background-color: #f9f9f9;
 	float: left;
 	width: 100%;
+	padding-top:20px;
 	height: 100px;
 	border-top: 1px solid black;
 }
@@ -287,10 +288,73 @@ div ul li{
 }
 
 div ul li img{
-	width: 80px;
-	height: 34px;
+	width: inherit;
+	height: 45px;
 	margin-top: 0px;
 }
+.right{
+	color: #8e8e8e;
+	margin: 15px 40px 0px 0px ;
+	float: right;
+	transition: 0.7s;
+}
+
+.right:hover{
+	color: black;
+	margin: 15px 40px 0px 0px ;
+	float: right;
+	transition: 0.7s;
+	cursor: pointer;
+	font-weight: 300;
+}
+.footernonlogo{
+	color: #8e8e8e;
+	margin: 15px 0px 0px 50px ;
+	float: left;
+	font-weight: 300;
+	transition: 0.7s;
+}
+
+.footernonlogo:hover{
+	color: black;
+	margin: 15px 0px 0px 50px ;
+	float: left;
+	transition: 0.7s;
+	cursor: pointer;
+	font-weight: 300;
+}
+
+.footernonlogofirst{
+	color: #8e8e8e;
+	margin: 15px 0px 0px 80px;
+	float: left;
+	font-weight: 300;
+	transition: 0.7s;
+	
+}
+
+.footernonlogofirst:hover{
+	color: black;
+	margin: 15px 0px 0px 80px;
+	float: left;
+	transition: 0.7s;
+	cursor: pointer;
+	font-weight: 300;
+}
+
+.footerlogo{
+	margin-top: 7px;
+	float: left;
+	margin-left: -15px;
+}
+
+.footerlogo:hover{
+	margin-top: 7px;
+	float: left;
+	margin-left: -15px;
+	cursor: pointer;
+}
+
 .right{
 	color: #8e8e8e;
 	margin: 15px 40px 0px 0px ;
