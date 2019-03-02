@@ -5,21 +5,20 @@ div.research{
 	float: left;
 	width:96%;
 	height: 680px;
-	margin-left: 2%;
 	margin-top: 30px;
+	margin-left:2%;
 	padding-top: 150px;
 }
 
 span.research{
-	margin-left: 10%;
 	font-weight: 300;
 	font-size: 18px;
 	line-height: 30px;
 }
 
-h2.research{
+/* h2.research{
 	margin-left: 10%;
-}
+} */
 
 .ResearchText{
 	float: right;
@@ -40,7 +39,6 @@ button.research{
 	border-width: 1px;
 	transition: 0.4s;
 	border-radius: 5px;
-	margin-left: 10%;
 	margin-top: 7%;
 	background-color: transparent;
 }
@@ -57,7 +55,6 @@ button.research:hover{
 	border-width: 1px;
 	transition: 0.7s;
 	border-radius: 5px;
-	margin-left: 10%;
 	margin-top: 7%;
 }
 
@@ -187,7 +184,9 @@ button.Learn:hover{
 	margin-left: 0;
 	margin-top: 7%;
 }
-
+.research p{
+	font-size: 1.25em;
+}
 
 div.join_us{
 	background-image: url(join_us.png);
