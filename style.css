@@ -67,7 +67,6 @@
 	padding: 10px;
 	background: #34495e;
 	color: white;
-	
 	position: relative;
 	top: 20px;
 	transition: .3s;
@@ -538,7 +537,7 @@ background: linear-gradient(to left, #155799, #159957);
 	font-size: 45px;
 	font-weight: 200;
 	padding-bottom: 50px;
-	color: black;
+	color: white;
 
 }
 .form-input{
@@ -594,7 +593,6 @@ input{
 }
 .form-input:focus{
 	outline: none;
-	background: transparent;
 }
 .working{
 	height:80vh;
@@ -652,7 +650,24 @@ button#yk:hover{
 }
 .contacts{
 	height: 100vh;
+	background: #2b354e;
+	padding-top:100px;
+}
+.contacts div textarea {
+	color:black;
 }
 .res{
-	height:100vh;
+	height:110vh;
+}
+.lefty{
+	float: left;
+	width: 50%;
+	padding-left: 10%;
+}
+.lefty2 img{
+	float: left;
+	width: 50%;
+	padding-right:10%;
+	padding-top:10%;
+	margin:0;
 }
