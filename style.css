@@ -220,7 +220,7 @@ background: linear-gradient(to left, #155799, #159957);
 	padding-top: 10px;
 	padding-bottom: 50px;
 	font-weight: 300;
-	font-family: 'Raleway',verdana;
+	font-family: 'Lato', sans-serif;
 	display: flex;
 	flex-wrap: wrap;
 	width: 80%;
@@ -234,7 +234,7 @@ background: linear-gradient(to left, #155799, #159957);
 	padding-top: 10px;
 	padding-bottom: 50px;
 	font-weight: 300;
-	font-family: 'Raleway',verdana;
+	font-family: 'Lato', sans-serif;
 	display: flex;
 	flex-wrap: wrap;
 	width: 80%;
@@ -276,7 +276,7 @@ background: linear-gradient(to left, #155799, #159957);
 .headzup{
 	font-size:50px;
 	position: relative;
-	font-family: 'Raleway',verdana;
+	font-family: 'Lato', sans-serif;
 	font-weight:  100;
 
 }
@@ -311,7 +311,7 @@ background: linear-gradient(to left, #155799, #159957);
 	padding-bottom: 100px;
 	padding-top: 50px;
 	background: #2b354e;
-	font-family: 'Raleway',verdana;
+	font-family: 'Lato', sans-serif;
 	font-weight: 300;
 	color: white;
 
@@ -352,7 +352,7 @@ background: linear-gradient(to left, #155799, #159957);
 	background: #ecf0f1;
 	margin-bottom: 50px;
 	color: black;
-	font-family: 'Raleway',verdana;
+	font-family: 'Lato', sans-serif;
 	font-weight: 500;
 }
 .options a:hover:after{
@@ -368,7 +368,7 @@ background: linear-gradient(to left, #155799, #159957);
 
 }
 .card-title{
-	font-family: 'Raleway',verdana;
+	font-family: 'Lato', sans-serif;
 	font-size: 37px;
 	font-weight: 300;
 }
@@ -390,7 +390,7 @@ background: linear-gradient(to left, #155799, #159957);
 	width: 40%;
 		text-align: left;
 	padding: 26px;
-	font-family: 'Raleway',verdana;
+	font-family: 'Lato', sans-serif;
 	font-weight: 300;
 
 }
@@ -417,13 +417,13 @@ background: linear-gradient(to left, #155799, #159957);
 	margin: auto;
 	flex: 1;
 	margin: auto;
-	font-family: 'Raleway',verdana;
+	font-family: 'Lato', sans-serif;
 	font-weight: 600;
 
 }
 #search{
 	padding: 10px;
-	font-family: 'Raleway',verdana;
+	font-family: 'Lato', sans-serif;
 	border: 1px solid #e0e0e0;
 	transition: .3s;
 	width: 300px;
@@ -433,7 +433,7 @@ background: linear-gradient(to left, #155799, #159957);
 	border-bottom-color: #000;
 }
 .row-header{
-	font-family: 'Raleway',verdana;
+	font-family: 'Lato', sans-serif;
 	font-size: 60px;
 	font-weight: 100;
 	padding-top: 100px;
@@ -494,7 +494,7 @@ background: linear-gradient(to left, #155799, #159957);
 	top: 0px;
 	padding-top: 280px;
 	padding-bottom: 300px;
-	font-family: 'Raleway',verdana;
+	font-family: 'Lato', sans-serif;
 	background: #9b59b6;
 	color: white;
 
@@ -530,7 +530,7 @@ background: linear-gradient(to left, #155799, #159957);
 	padding-top: 200px;
 	padding-bottom: 200px;
 	background: rgb(82, 255, 47);
-	font-family: 'Raleway',verdana;
+	font-family: 'Lato', sans-serif;
 	color: white;
 
 }
@@ -603,7 +603,7 @@ input{
 }
 .work{
 	float:left;
-	padding:11vh 0 0 10vh;
+	padding:11vh 0 0 5%;
 	color:#223c7e;
 	width:650px;
 }
@@ -622,7 +622,7 @@ input{
 } 
 .work2{
 	float:left;
-	padding:16vh 0 0 10vh;
+	padding:16vh 0 0 5%;
 	color:#2b354e;
 	width:650px;
 }
@@ -633,7 +633,7 @@ button#yk {
     text-align: center;
     height: 40px;
     width: 170px;
-    font-family: helvetica;
+    font-family: 'Lato', sans-serif;
     color: rgb(0, 113, 226);
 	font-size: 12px;
 	background-color: white;
@@ -649,4 +649,10 @@ button#yk:hover{
 	font-size: 12px;
 	background-color: #0080FF;
 	border-color: #0080FF;
+}
+.contacts{
+	height: 100vh;
+}
+.res{
+	height:100vh;
 }
